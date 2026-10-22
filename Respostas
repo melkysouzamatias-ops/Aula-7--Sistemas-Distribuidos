@@ -1,0 +1,14 @@
+1-Qual posição do vetor pertence ao Processo A? E ao B? E ao C?
+O vetor possui três posições: o índice 0 pertence ao Processo A, o índice 1 pertence ao Processo B, e o índice 2 pertence ao Processo C[cite: 5].
+
+2-O que aconteceu com o vetor de B quando ele recebeu uma mensagem de A?
+O processo B realizou uma operação de merge, atualizando cada posição do seu vetor para o valor máximo (max) entre o seu próprio vetor e o vetor recebido de A, e em seguida incrementou a sua própria posição (índice 1) em 1 unidade.   
+
+3-Por que C passa a conhecer eventos de A mesmo sem receber uma mensagem diretamente de A?
+Isso ocorre devido à transatividade da causalidade. Quando A enviou sua mensagem para B, B incorporou o histórico de A[cite: 6]. Quando B enviou posteriormente uma mensagem para C, ele propagou junto o seu vetor atualizado (que já continha o histórico de A), fazendo com que C herdasse esse conhecimento de forma indireta[cite: 7].
+
+4-Que informação foi propagada por B?
+B propagou o seu vetor de relógio atualizado (vetor_B), que continha o registro consolidado dos seus próprios eventos locais e o conhecimento acumulado das mensagens anteriores recebidas de A.   
+
+5-O vetor representa horário real? 
+Não, o vetor representa tempo lógico (ou causalidade), e não tempo físico ou horário de relógio real (wall-clock time). Ele serve para rastrear a ordem de causa e efeito entre eventos em sistemas distribuídos, e não segundos ou minutos do mundo real.
